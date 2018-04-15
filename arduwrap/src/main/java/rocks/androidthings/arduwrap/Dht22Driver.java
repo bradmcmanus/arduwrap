@@ -2,7 +2,7 @@ package rocks.androidthings.arduwrap;
 
 import android.util.Log;
 
-import com.google.android.things.pio.PeripheralManagerService;
+import com.google.android.things.pio.PeripheralManager;
 import com.google.android.things.pio.UartDevice;
 
 import java.io.IOException;
@@ -39,7 +39,7 @@ public class Dht22Driver implements BaseSensor, AutoCloseable {
 
     @Override
     public void startup() {
-        PeripheralManagerService mPeripheralManagerService = new PeripheralManagerService();
+        PeripheralManager mPeripheralManagerService = PeripheralManager.getInstance();
 
         try {
             mDevice = mPeripheralManagerService.openUartDevice(arduino.getUartDeviceName());
